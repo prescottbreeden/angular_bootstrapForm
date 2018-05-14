@@ -20,6 +20,10 @@
             id="password" 
             type="text" 
             class="form-control">
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <div *ngIf="password.errors.required">Password is required.</div>
+            <div *ngIf="password.errors.minlength">Password should be minimum {{password.errors.minlength.requiredLength}} characters.</div>
+        </div>
     </div>
     <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
